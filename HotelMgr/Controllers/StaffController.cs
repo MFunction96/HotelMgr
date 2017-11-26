@@ -1,18 +1,21 @@
-﻿namespace HotelMgr.Controllers
+﻿using System;
+using System.Collections.Generic;
+
+namespace HotelMgr.Controllers
 {
     public class StaffController : AccountController
     {
-        public PriceController PriceCtrl { get;}
-        public RecordController RecordCtrl { get;  }
+        public PriceController PriceCtrl { get; }
+        public RecordController RecordCtrl { get; }
         public RoomController RoomCtrl { get; }
-        public ClientController ClientCtrl { get; }
+        public CustomerController CustomerCtrl { get; }
 
         public StaffController() : base(true)
         {
-            PriceCtrl = new PriceController(ref Context);
-            RecordCtrl = new RecordController(ref Context);
-            RoomCtrl = new RoomController(ref Context);
-            ClientCtrl = new ClientController();
+            PriceCtrl = new PriceController(ref Id, ref Context);
+            RecordCtrl = new RecordController(ref Id, ref Context);
+            RoomCtrl = new RoomController(ref Id, ref Context);
+            CustomerCtrl = new CustomerController();
         }
 
         public override void Login(string username, string password)
@@ -21,14 +24,9 @@
             if (staff != null) Login(staff.Id);
         }
 
-        public override void Cancel()
+        public override IEnumerable<object> Query(object account)
         {
-            base.Cancel();
-        }
-
-        public override void Edit()
-        {
-            base.Edit();
+            throw new System.NotImplementedException();
         }
 
         public override void Logout()
@@ -36,19 +34,24 @@
             base.Logout();
         }
 
-        public override void Register()
+        public override void Add(object obj)
         {
-            base.Register();
+            throw new NotImplementedException();
+        }
+
+        public override void Drop(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Adjust(Guid id, object obj)
+        {
+            throw new NotImplementedException();
         }
 
         public override void CreateLog(string operation)
         {
             throw new System.NotImplementedException();
-        }
-
-        public void Manage()
-        {
-            
         }
 
     }

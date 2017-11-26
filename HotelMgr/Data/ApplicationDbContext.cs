@@ -6,7 +6,7 @@ namespace HotelMgr.Data
 {
     public class ApplicationDbContext : DataContext
     {
-        public DbSet<ClientModel> Client { get; set; }
+        public DbSet<CustomerModel> Customer { get; set; }
         public DbSet<OrderModel> Order { get; set; }
         public DbSet<PriceModel> Price { get; set; }
         public DbSet<RecordModel> Record { get; set; }

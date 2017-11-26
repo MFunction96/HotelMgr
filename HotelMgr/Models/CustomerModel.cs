@@ -2,7 +2,7 @@
 
 namespace HotelMgr.Models
 {
-    public class ClientModel : Account
+    public class CustomerModel : AccountModel
     {
         [Required]
         public bool IsVip { get; set; }

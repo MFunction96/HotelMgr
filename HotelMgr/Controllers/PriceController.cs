@@ -1,28 +1,42 @@
 ﻿using HotelMgr.Data;
-using HotelMgr.Models;
 using HotelMgr.Serivces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace HotelMgr.Controllers
 {
-    public class PriceController : ILog
+    public class PriceController : ILog, IQuery, IAdjust
     {
         private ApplicationDbContext Context { get; }
+        private Guid Id { get; }
 
-        public PriceController(ref ApplicationDbContext context)
+        public PriceController(ref Guid id, ref ApplicationDbContext context)
         {
             Context = context;
+            Id = id;
         }
 
-        public IEnumerable<PriceModel> Query(PriceModel price)
+        public void Add(object obj)
         {
-            var tmp = from prices in Context.Price where prices.Id == price.Id select prices;
-            return tmp;
+            throw new NotImplementedException();
+        }
+
+        public void Drop(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Adjust(Guid id, object obj)
+        {
+            throw new NotImplementedException();
         }
 
         public void CreateLog(string operation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<object> Query(object obj)
         {
             throw new NotImplementedException();
         }

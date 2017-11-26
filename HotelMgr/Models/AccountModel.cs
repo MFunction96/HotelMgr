@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HotelMgr.Models
 {
-    public abstract class Account
+    public abstract class AccountModel
     {
         [Required]
         [MaxLength(256)]

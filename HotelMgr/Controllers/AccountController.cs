@@ -1,12 +1,13 @@
 ﻿using HotelMgr.Data;
-using System;
 using HotelMgr.Serivces;
+using System;
+using System.Collections.Generic;
 
 namespace HotelMgr.Controllers
 {
-    public abstract class AccountController : ILog
+    public abstract class AccountController : ILog, IQuery, IAdjust
     {
-        protected Guid Id { get; set; }
+        protected Guid Id;
         protected bool IsStaff { get; }
         protected OrderController OrderCtrl { get; set; }
         protected ApplicationDbContext Context;
@@ -15,35 +16,24 @@ namespace HotelMgr.Controllers
         {
             IsStaff = isStaff;
             Context = new ApplicationDbContext("");
-            OrderCtrl = new OrderController(ref Context);
+            OrderCtrl = new OrderController(ref Id, ref Context);
         }
-        protected void Login(Guid id)
+        protected void Login(Guid accountId)
         {
-            
+
         }
 
         public abstract void Login(string username, string password);
 
         public virtual void Logout()
         {
-            
+
         }
 
-        public virtual void Edit()
-        {
-            
-        }
-
-        public virtual void Cancel()
-        {
-            
-        }
-
-        public virtual void Register()
-        {
-            
-        }
-
+        public abstract void Add(object obj);
+        public abstract void Drop(Guid id);
+        public abstract void Adjust(Guid id, object obj);
         public abstract void CreateLog(string operation);
+        public abstract IEnumerable<object> Query(object obj);
     }
 }
