@@ -10,6 +10,38 @@ namespace HotelMgr.Controllers
         public RoomController RoomCtrl { get; }
         public CustomerController CustomerCtrl { get; }
 
+        public CustomerController CustomerController
+        {
+            get => default(CustomerController);
+            set
+            {
+            }
+        }
+
+        public PriceController PriceController
+        {
+            get => default(PriceController);
+            set
+            {
+            }
+        }
+
+        public RecordController RecordController
+        {
+            get => default(RecordController);
+            set
+            {
+            }
+        }
+
+        public RoomController RoomController
+        {
+            get => default(RoomController);
+            set
+            {
+            }
+        }
+
         public StaffController() : base(true)
         {
             PriceCtrl = new PriceController(ref Id, ref Context);

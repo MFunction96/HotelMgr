@@ -35,5 +35,21 @@ namespace HotelMgr.Controllers
         public abstract void Adjust(Guid id, object obj);
         public abstract void CreateLog(string operation);
         public abstract IEnumerable<object> Query(object obj);
+
+        public OrderController OrderController
+        {
+            get => default(OrderController);
+            set
+            {
+            }
+        }
+
+        public ApplicationDbContext ApplicationDbContext
+        {
+            get => default(ApplicationDbContext);
+            set
+            {
+            }
+        }
     }
 }

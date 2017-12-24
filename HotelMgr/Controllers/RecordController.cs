@@ -10,6 +10,14 @@ namespace HotelMgr.Controllers
         private ApplicationDbContext Context { get; }
         private Guid Id { get; }
 
+        public ApplicationDbContext ApplicationDbContext
+        {
+            get => default(ApplicationDbContext);
+            set
+            {
+            }
+        }
+
         public RecordController(ref Guid id, ref ApplicationDbContext context)
         {
             Context = context;
